@@ -8,12 +8,30 @@ Repositório onde eu tento guardar parte dos meus códigos construídos em sala 
 * * IDEs (Eclipse, IntelliJ, Visual Studio Code)
 ***
 * Declaração de variáveis e dos seus tipos;
-* Comandos condicionais em Java (if-else if-else e switch)
-* Operadores;
-* Tipos Primitivos
-
+* Tipos Primitivos;
+* Comandos condicionais e loops;
+* Arrays;
+* Operadores:
+* * Aritméticos;
+  * Relacionais;
+  * Lógicos, etc;
+* Interfaces de input:
+* * Scanner;
+  * JOptionPane;
+***
+* Declaração de Métodos:
+* * Modificadores;
+  * Tipos de retorno;
+  * Parâmetros;
+* Operações com Strings;
+* Acesso ao Prompt de comando;
 ***
 * Introdução à Programação Orientada a Objetos com Java;
+* Objetos:
+* * Atributos;
+  * Construtor;
+  * Getters and Setters;
+  * toString();
 * Pilares da POO:
 * * Abstração;
 * * Encapsulamento;
