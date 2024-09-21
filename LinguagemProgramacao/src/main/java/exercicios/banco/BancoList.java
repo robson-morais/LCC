@@ -1,5 +1,4 @@
 package exercicios.banco;
-import lp.intro.oo.exercicioBanco.Conta;
 
 import java.util.ArrayList;
 

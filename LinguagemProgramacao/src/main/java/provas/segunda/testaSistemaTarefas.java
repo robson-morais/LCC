@@ -14,7 +14,6 @@ public class testaSistemaTarefas {
         sistema.cadastrarTarefa(t3);
 
         ArrayList<Tarefa> tarefasMes = sistema.pesquisarTarefasPorMes(8,2024);
-        for(Tarefa tarefa: sistema){
 
         }
     }
