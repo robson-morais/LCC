@@ -1,0 +1,134 @@
+Exercício 7.2 (6.2)
+
+1. (2.5) Escreva TUDO o que é impresso na tela quando o programa acima é
+executado recebendo do  usuário os seguintes dados de entrada pelo teclado:
+
+2 
+111 
+ALMOÇO 
+222 
+ALMOÇO 
+
+R: 
+Quantas refeições foram servidas hoje?
+2
+Matrícula do(a) aluno(a) [1]
+111
+Qual o tipo de refeição? CAFÉ, ALMOÇO ou JANTAR
+ALMOÇO
+RefeicaoRealizada pelo aluno de matrícula 111, tipo da refeição:ALMO?O
+Matrícula do(a) aluno(a) [2]
+222
+Qual o tipo de refeição? CAFÉ, ALMOÇO ou JANTAR
+ALMOÇO
+RefeicaoRealizada pelo aluno de matrícula 222, tipo da refeição:ALMO?O
+FIM DO PROGRAMA
+
+
+
+2. (5.0) Acrescente código na área de //TODO, para que: 
+
+(a) O programa calcule e imprima a quantidade de refeições do tipo
+ALMOÇO realizadas.  
+
+        int contAlmoco = 0;
+        for (int k = 0; k < quantidadeRefeicoes; k++) {
+            String ref = refeicoes[k].getTipoRefeicao();
+            if (ref.equalsIgnoreCase("almoco")){
+                contAlmoco++;
+            }
+        }
+        System.out.println("Quantidade de refeiçoes do tipo ALMOÇO: "+contAlmoco);
+
+(b) O programa verifique se foi realizada alguma refeição do tipo
+CAFÉ e imprima “SIM” caso tenha sido  realizada e “NÃO” caso contrário. 
+
+        boolean cafe = false;
+        for (int k = 0; k < quantidadeRefeicoes; k++) {
+            String ref = refeicoes[k].getTipoRefeicao();
+            if (ref.equalsIgnoreCase("cafe")){
+                cafe = true;
+                break;
+            }
+        }
+        if (cafe){
+            System.out.println("SIM, houve CAFÉ");
+        } else {
+            System.out.println("NÃO houve CAFÉ");
+        }
+
+Observação: Se preferir, você pode criar métodos e chamá-los deste ponto
+do TODO desde que coloque  também o código dos métodos chamados. 
+
+
+3. (2.5) Crie um OUTRO programa completo que leia um inteiro “N” indicando
+a quantidade de refeições  do tipo ALMOÇO realizadas e o preço de cada
+refeição do tipo almoço. Posteriormente, o programa deve  imprimir o valor
+total gasto pelo RU com almoços.
+
+// Criando o atributo precoRefeicao no objeto RefeicaoRealizada e dando seu
+parametro ao construtor:
+
+public class RefeicaoRealizada { 
+
+    private String matriculaAluno; 
+    private String tipoRefeicao; 
+    private double precoRefeicao;
+
+    public RefeicaoRealizada(String matriculaAluno, String tipoRefeicao, double precoRefeicao) {
+        this.matriculaAluno = matriculaAluno; 
+        this.tipoRefeicao = tipoRefeicao; 
+        this.precoRefeicao = precoRefeicao;
+    } 
+// Getters and Setters devidamente criados para o objeto...
+
+import java.util.Scanner; 
+
+public class testaRefeicaoRu { 
+    public static void main(String[] args) { 
+
+        Scanner leitor = new Scanner(System.in); 
+        System.out.println("Quantas refeições foram servidas hoje?"); 
+        int quantidadeRefeicoes = Integer.parseInt(leitor.nextLine());
+
+        RefeicaoRealizada [] refeicoes = new RefeicaoRealizada[quantidadeRefeicoes]; 
+        for (int k = 0; k < quantidadeRefeicoes; k++) {
+            System.out.println("Matrícula do(a) aluno(a) [" + (k + 1) + "]");
+            String matricula = leitor.nextLine(); 
+            System.out.println("Qual o tipo de refeição? CAFÉ, ALMOCO ou JANTAR");
+            String tipoRefeicao = leitor.nextLine(); 
+            System.out.println("Valor da refeição:");
+            double preco = Double.parseDouble(leitor.nextLine());
+            refeicoes[k] = new RefeicaoRealizada(matricula, tipoRefeicao, preco); 
+            System.out.printf("%s\n", refeicoes[k].toString()); 
+        }
+        
+        int contAlmoco = 0;
+        double gastosAlmocos = 0;
+        for (int k = 0; k < quantidadeRefeicoes; k++) {
+            String ref = refeicoes[k].getTipoRefeicao();
+            if (ref.equalsIgnoreCase("almoco")){
+                contAlmoco++;
+                gastosAlmocos += refeicoes[k].getPrecoRefeicao();
+            }
+        }
+        System.out.printf("Quantidade de refeiçoes do tipo ALMOÇO: %d\n",contAlmoco);
+        System.out.println("Gastos com almoços: R$ "+gastosAlmocos);
+
+        boolean cafe = false;
+        for (int k = 0; k < quantidadeRefeicoes; k++) {
+            String ref = refeicoes[k].getTipoRefeicao();
+            if (ref.equalsIgnoreCase("cafe")){
+                cafe = true;
+                break;
+            }
+        }
+        if (cafe){
+            System.out.println("SIM, houve CAFÉ");
+        } else {
+            System.out.println("NÃO houve CAFÉ");
+        }
+        System.out.printf("FIM DO PROGRAMA");
+        leitor.close(); 
+    }
+} 

@@ -1,0 +1,129 @@
+Exercicio 7.1 (6.1)
+
+1. (2.0) O que é impresso na tela quando o programa acima é executado
+recebendo do usuário os seguintes dados de entrada pelo teclado? 
+
+3 
+Calça Jeans 
+50.00
+Short 
+35.00 
+Vestido 
+120.00 
+
+R1: 
+
+Quantos produtos você quer comprar?
+3
+
+Qual o nome do produto?
+calça jeans
+Qual o preço original do produto?
+50.00
+O valor a pagar pelo produto é R$ 47,50
+
+Qual o nome do produto?
+short
+Qual o preço original do produto?
+35.00
+O valor a pagar pelo produto é R$ 35,00
+
+Qual o nome do produto?
+vestido
+Qual o preço original do produto?
+120.00
+O valor a pagar pelo produto é R$ 108,00
+
+
+
+
+2.  (2.0)  Crie  um  método  estático  para  a  classe  ProgramaDescontos
+chamado  “calculaSomatorioDescontos” que retorna o somatório dos descontos
+na compra  de  um  conjunto  de  produtos.  Este  método  recebe  como
+parâmetro  um  array  de elementos do tipo Produto e retorna um double. 
+
+R2: 
+    public static double calculaDescontos(Produto [] produtos){
+
+        double valorFinalSemDesconto = 0;
+        double valorFinalComDesconto = 0;
+
+        for (int i=0; i<produtos.length;i++){
+            valorFinalSemDesconto += produtos[i].getPreco();
+            valorFinalComDesconto += calculaValorComDesconto(produtos[i].getPreco());
+        }
+        double descontosAplicados = valorFinalSemDesconto - valorFinalComDesconto;
+        return descontosAplicados;
+    }
+
+
+3.  (3.0)  Crie  um  método  estático  para  a  classe  ProgramaDescontos
+chamado  “verificaProdutoComMaiorDesconto” que  retorna  o  nome  do 
+produto  que  obteve maior desconto. Este método recebe como parâmetro um
+array de elementos do  tipo Produto. 
+
+R3: 
+    public static String verificaProdutoComMaiorDesconto(Produto [] produtos){
+        int cont = produtos.length;
+        String produtoComMaiorDesconto = "";
+        double [] valoresComDesconto = new double[cont];
+        for (int k=0; k<cont; k++){
+            valoresComDesconto[k] = calculaValorComDesconto(produtos[k].getPreco());
+        }
+        double maiorValor = 0;
+        for (int i=0; i<cont; i++){
+            if (valoresComDesconto[i]>maiorValor){
+                maiorValor = valoresComDesconto[i];
+                produtoComMaiorDesconto = produtos[i].getNome();
+            }
+        
+        }
+        return produtoComMaiorDesconto;
+    }
+
+
+
+4. (3.0) Crie um programa (apenas o método main)  para testar os métodos
+das questões  2  e  3.  Seu  programa  deve imprimir  o  somatório  dos
+descontos  dados  aos  produtos  comprados e também o nome do produto que
+obteve maior desconto.
+
+public static void main(String [] args){
+
+        Scanner leitor = new Scanner(System.in);
+        
+        System.out.println("Quantos produtos você quer comprar?"); 
+        int quant = Integer.parseInt(leitor.nextLine()); 
+        Produto [] produtos = new Produto [quant]; 
+
+        double valorSemDesconto = 0;
+
+        for (int k=0; k<quant; k++){ 
+
+            Produto p = new Produto();
+
+            System.out.println("Qual o nome do produto?"); 
+            p.setNome(leitor.nextLine()); 
+
+            System.out.println("Qual o preço original do produto?"); 
+            p.setPreco(Double.parseDouble(leitor.nextLine())); 
+
+            double valorComDesconto = calculaValorComDesconto(p.getPreco()); 
+            System.out.printf("O valor a pagar pelo produto é R$ %.2f\n",valorComDesconto); 
+            
+            produtos[k] = p;
+            valorSemDesconto += p.getPreco();
+            
+        }
+
+        System.out.println("Produto que obteve o maior desconto: "+verificaProdutoComMaiorDesconto(produtos)+"\n"+
+        "Valores descontados nesta compra: R$ "+calculaDescontos(produtos));
+
+        double descontosAplicados = calculaDescontos(produtos);
+        double valorComDesconto = valorSemDesconto - descontosAplicados;
+
+        System.out.println("O valor total sem descontos era de: R$ "+valorSemDesconto+"\n"
+        +"Valor final com descontos aplicados: R$ "+valorComDesconto);
+    
+        leitor.close(); 
+    } 
