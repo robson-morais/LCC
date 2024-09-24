@@ -1,5 +1,7 @@
 package provas.segunda;
 
+import java.util.Objects;
+
 public class DataSimples {
     private int dia;
     private int mes;
@@ -36,10 +38,18 @@ public class DataSimples {
 
     @Override
     public String toString() {
-        return "DataSimples {" +
-                "dia =" + dia +
-                ", mes =" + mes +
-                ", ano =" + ano +
-                '}';
+        return "DataSimples {" + this.dia + "/" + this.mes + "/" + this.ano+"}";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof DataSimples that)) return false;
+        return getDia() == that.getDia() && getMes() == that.getMes() && getAno() == that.getAno();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getDia(), getMes(), getAno());
     }
 }

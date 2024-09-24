@@ -1,16 +1,18 @@
 package provas.segunda;
 
+import java.util.Objects;
+
 public class Tarefa {
     private String descricao;
     private String tipo;
     private DataSimples dataLimite;
-    private String Status;
+    private String status;
 
     public Tarefa(String descricao, String tipo, DataSimples dataLimite, String status) {
         this.descricao = descricao;
         this.tipo = tipo;
         this.dataLimite = dataLimite;
-        Status = status;
+        this.status = status;
     }
 
     public Tarefa() {
@@ -42,21 +44,28 @@ public class Tarefa {
     }
 
     public String getStatus() {
-        return Status;
+        return status;
     }
 
     public void setStatus(String status) {
-        Status = status;
+        this.status = status;
+    }
+
+    @Override // Compara a descricao e a data limite dos objetos;
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Tarefa tarefa)) return false;
+        return Objects.equals(getDescricao(), tarefa.getDescricao()) && Objects.equals(getDataLimite(), tarefa.getDataLimite());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getDescricao(), getDataLimite());
     }
 
     @Override
     public String toString() {
-        return "Tarefa{" +
-                "descricao='" + descricao + '\'' +
-                ", tipo='" + tipo + '\'' +
-                ", dataLimite=" + dataLimite +
-                ", Status='" + Status + '\'' +
-                '}';
+        return "Tarefa "+this.descricao+" da categoria "+this.tipo+" com status "+this.status;
     }
 
 }
