@@ -2,9 +2,5 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/LinguagemProgramacao/src/main/java/rascunhos/Agosto20" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/LinguagemProgramacao/src/main/java/rascunhos/agosto10" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/LinguagemProgramacao/src/main/java/rascunhos/agosto29" vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/LinguagemProgramacao/src/main/java/rascunhos/aula2agosto" vcs="Git" />
   </component>
 </project>
