@@ -1,4 +1,5 @@
 package Projeto;
+
 import java.util.List;
 
 public interface AnimeInterface {
