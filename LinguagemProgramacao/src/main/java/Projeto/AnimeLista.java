@@ -16,7 +16,7 @@ public class AnimeLista implements AnimeInterface {
         this.animes = listaInicial;
     }
 
-    public void cadastrarAnime(Anime anime) throws AnimeNaoExisteException{
+    public void cadastrarAnime(Anime anime) throws AnimeNaoExisteException {
 
         if(this.animes.contains(anime)){
             throw new AnimeNaoExisteException("Anime já existe");

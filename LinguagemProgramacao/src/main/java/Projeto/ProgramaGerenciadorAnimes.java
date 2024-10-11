@@ -1,10 +1,12 @@
 package Projeto;
+import Projeto.*;
+
 import javax.swing.*;
 import java.io.IOException;
 import java.util.List;
 
 public class ProgramaGerenciadorAnimes {
-    public static void main(String [] args) throws AnimeNaoExisteException{
+    public static void main(String [] args) throws AnimeNaoExisteException {
         
         AnimeInterface sistemaAnime = null;
         GravadorAnimes gravador = new GravadorAnimes();
@@ -88,7 +90,7 @@ public class ProgramaGerenciadorAnimes {
                 gravador.gravaAnimes(sistemaAnime.getAnime());
                 //JOptionPane.showMessageDialog(null, "Animes salvos com sucesso!");
             } catch (IOException e){
-                JOptionPane.showMessageDialog(null, "Houve um problema ao salvar o animes. Detalhe do erro: "+ e.getMessage());
+                JOptionPane.showMessageDialog(null, "Houve um problema ao salva Animes. Detalhe do erro: "+ e.getMessage());
             }
         }
     }
