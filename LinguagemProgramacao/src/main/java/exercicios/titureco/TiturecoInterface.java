@@ -2,7 +2,7 @@ package exercicios.titureco;
 
 import java.util.List;
 
-public interface Tritureco {
+public interface TiturecoInterface {
     boolean cadastrarAtrativoTuristico(AtrativoTuristico atrativo);
     boolean ApagarAtrativoTuristico(AtrativoTuristico atrativoTuristico);
     List<AtrativoTuristico> getAtrativos();

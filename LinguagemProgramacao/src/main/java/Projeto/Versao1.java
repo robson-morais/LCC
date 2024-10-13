@@ -3,7 +3,7 @@ import javax.swing.*;
 import java.io.IOException;
 import java.util.List;
 
-public class mm {
+public class Versao1 {
     public static void main(String [] args) throws AnimeNaoExisteException{
         
         AnimeInterface sistemaAnime = null;

@@ -28,9 +28,9 @@ public class AnimeLista implements AnimeInterface {
     public void pesquisarAnime(String titulo){
         ArrayList<Anime> anime = new ArrayList<>();
         boolean encontrou = false;
-        for(Anime ani: this.animes){
-            if(titulo.equalsIgnoreCase(ani.getTitulo()) ){
-                anime.add(ani);
+        for(Anime anim: this.animes){
+            if(titulo.equalsIgnoreCase(anim.getTitulo()) ){
+                anime.add(anim);
                 encontrou = true;
                 break;
             }
@@ -50,7 +50,7 @@ public class AnimeLista implements AnimeInterface {
         List<Anime> todosAnimes = new ArrayList<>();
         boolean achou = false;
         for(Anime anime: this.animes){
-            if(anime.getGenero().toLowerCase().equalsIgnoreCase(genero) || anime.getGenero().toUpperCase().startsWith(genero)){
+            if(anime.getGenero().toLowerCase().startsWith(genero) || anime.getGenero().toUpperCase().startsWith(genero)){
                 todosAnimes.add(anime);
                 achou = true;
             }
@@ -64,9 +64,9 @@ public class AnimeLista implements AnimeInterface {
     public List<Anime> pesquisarAnimePorAno(String ano) throws AnimeNaoExisteException{
         List<Anime> animesFound = new ArrayList<>();
         boolean found = false;
-        for (Anime anm: this.animes){
-            if (anm.getAno().equals(ano)){
-                animesFound.add(anm);
+        for (Anime anime: this.animes){
+            if (anime.getAno().equals(ano)){
+                animesFound.add(anime);
                 found = true;
             }
         }
@@ -84,8 +84,6 @@ public class AnimeLista implements AnimeInterface {
         }
         return false;
     }
-
-
 
     @Override
     public void atualizarAnime(String tituloAtual, String novoTitulo, String novoAno, String novoGenero, String novoEps) throws AnimeNaoExisteException {

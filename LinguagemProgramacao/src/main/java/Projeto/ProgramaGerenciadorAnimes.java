@@ -17,7 +17,6 @@ public class ProgramaGerenciadorAnimes {
         }catch (IOException e){
             sistemaAnime = new AnimeLista();
             //JOptionPane.showMessageDialog(null, "Sistema iniciado, Animes não recuperados\n\ndetalhe do erro: "+ e.getMessage());
-
         }
 
         AnimeLista animeLista = new AnimeLista();

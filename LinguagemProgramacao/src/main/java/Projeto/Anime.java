@@ -49,7 +49,7 @@ public class Anime {
 
 
     public String toString(){
-        return  "   "+this.getTitulo()+"    Ano: "+this.getAno()+"   Genero: "+ this.getGenero()+"   Possui: "+ this.episodios+" Episodios\n";
+        return  "'"+this.getTitulo()+"'"+"   Ano: "+this.getAno()+"   Genero: "+ this.getGenero()+"   Episodios: "+ this.episodios+"\n";
     }
 
     @Override

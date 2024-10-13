@@ -4,16 +4,16 @@ import java.util.Objects;
 
 public class AtrativoTuristico {
     private String nome;
-    private String latitude;
-    private String longitude;
+    private double latitude;
+    private double longitude;
     private String comoChegar;
     private String cidade;
     private String estado;
 
     public AtrativoTuristico(){
-        this("","","","","","");
+        this("",0.0,0.0,"","","");
     }
-    public AtrativoTuristico(String nome, String latitude, String longitude, String comoChegar, String cidade, String estado){
+    public AtrativoTuristico(String nome, double latitude, double longitude, String comoChegar, String cidade, String estado){
         this.nome = nome;
         this.latitude = latitude;
         this.longitude = longitude;
@@ -42,19 +42,19 @@ public class AtrativoTuristico {
         this.nome = nome;
     }
 
-    public String getLatitude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(String latitude) {
+    public void setLatitude(double latitude) {
         this.latitude = latitude;
     }
 
-    public String getLongitude() {
+    public double getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(String longitude) {
+    public void setLongitude(double longitude) {
         this.longitude = longitude;
     }
 
@@ -80,5 +80,9 @@ public class AtrativoTuristico {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+    public String toString(){
+        return "'"+this.nome+"' {Localização: "+this.comoChegar+", Cidade: " +this.cidade+", Estado: "+this.estado+"}\n";
     }
 }
