@@ -1,5 +1,4 @@
-package provas.segunda;
-import java.util.ArrayList;
+package provas;
 import java.util.List;
 
 public interface SistemaTarefas {

@@ -1,4 +1,4 @@
-package provas.segunda;
+package provas;
 
 import java.util.Objects;
 

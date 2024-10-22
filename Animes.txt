@@ -1,3 +1,4 @@
 Naruto#2002#Ação#220
-Boku no hero academia #2016#Ação/Escolar#13
-Boku no hero academia 2#2017#Ação/Escolar#24
+Boku no hero academia #2016#Ação,Escolar#13
+Boku no hero academia 2#2017#Ação,Escolar#24
+Anime 1#2024#Ação#11

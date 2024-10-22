@@ -46,6 +46,7 @@ public class AnimeLista implements AnimeInterface {
     public List<Anime> getAnime(){
         return this.animes;
     }
+
     public List<Anime> pesquisarAnimePorGenero(String genero) throws AnimeNaoExisteException{
         List<Anime> todosAnimes = new ArrayList<>();
         boolean achou = false;
