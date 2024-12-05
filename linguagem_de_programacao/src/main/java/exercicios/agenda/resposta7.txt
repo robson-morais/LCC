@@ -1,0 +1,7 @@
+Primeiramente, eu criei a classe/objeto 'Email' que tem três atributos: nome, sobrenome e domínio.
+Em seguida, eu adicionei um tipo deste objeto (email) como atributo para o objeto Contato; 
+Assim, fica [Contato(String nome, Endereco endereco, Email email)].
+Na classe AgendaEnderecos, eu peguei as variáveis 'nome','sobrenome' e criei uma variável 'agenda'
+(esta última foi definida como domínio padrão) para usar como parâmetros do objeto Email e criar
+automaticamente um email local para o usuário. Nos três casos, eu adcionei ".toLowerCase()".
+O modelo do email, nesse caso, fica: nome.sobrenome@agenda.com
