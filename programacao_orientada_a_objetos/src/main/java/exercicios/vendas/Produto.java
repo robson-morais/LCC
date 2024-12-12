@@ -24,6 +24,7 @@ public class Produto {
     public String getDescricao() {
         return descricao;
     }
+
     public void setDescricao(String descricao) {
         this.descricao = descricao;
     }
@@ -69,7 +70,7 @@ public class Produto {
     }
 
     @Override
-    public java.lang.String toString() {
+    public String toString() {
         return "Dados do produto:\n{Descrição = " + descricao
         + "\nCategoria = " + categoria
         + "\nTamanho = " + tamanho
