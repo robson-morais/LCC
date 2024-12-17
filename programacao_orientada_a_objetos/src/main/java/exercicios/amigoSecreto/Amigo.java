@@ -1,5 +1,5 @@
 package exercicios.amigoSecreto;
-//teste de pull
+
 public class Amigo {
     
     private String nome;

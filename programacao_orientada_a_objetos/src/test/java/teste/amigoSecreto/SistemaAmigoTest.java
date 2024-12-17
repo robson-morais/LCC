@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
 public class SistemaAmigoTest {
 
 	SistemaAmigo sistema;
-	
+
 	@BeforeEach
 	void setUp()  {
 		this.sistema = new SistemaAmigo();
@@ -22,29 +22,26 @@ public class SistemaAmigoTest {
 
 	@Test
 	void testSistemaAmigo() {
-		assertTrue(sistema.pesquisarTodasMensagens().isEmpty());
-		assertThrows(AmigoInexistenteException.class,
-				()-> sistema.pesquisarAmigo("ayla@teste.com"));
+		assertTrue(sistema.pesquisaTodasAsMensagens().isEmpty());
+		assertThrows(AmigoInexistenteException.class, ()-> sistema.pesquisaAmigo("ayla@teste.com"));
 	}
 
 	@Test
 	void testPesquisaECadastraAmigo() {
 		try {
-			sistema.pesquisarAmigo("ayla@teste.com");
+			sistema.pesquisaAmigo("ayla@teste.com");
 			fail("Deveria falhar pois não existe ainda");
 		} catch (AmigoInexistenteException e) {
 			//Ok
 		}
 		try {
-			sistema.cadastrarAmigo("ayla", "ayla@teste.com");
-			Amigo a = sistema.pesquisarAmigo("ayla@teste.com");
+			sistema.cadastraAmigo("ayla", "ayla@teste.com");
+			Amigo a = sistema.pesquisaAmigo("ayla@teste.com");
 			assertEquals("ayla", a.getNome());
 			assertEquals("ayla@teste.com", a.getEmail());
-		} catch (AmigoJaExisteException | AmigoInexistenteException  e) {
+		} catch (AmigoJaExisteException | AmigoInexistenteException e) {
 			fail("Não deveria lançar exceção");
-		} 
-		
-		
+		}
 	}
 
 	@Test
@@ -86,7 +83,7 @@ public class SistemaAmigoTest {
 
 	@Test
 	void testPesquisaAmigoEConfiguraAmigoSecretoDe() {
-		assertThrows(AmigoInexistenteException.class, 
+		assertThrows(AmigoInexistenteException.class,
 				()-> sistema.pesquisaAmigoSecretoDe("ayla@dcx.ufpb.br"));
 		try {
 			sistema.cadastraAmigo("Ayla", "ayla@dcx.ufpb.br");

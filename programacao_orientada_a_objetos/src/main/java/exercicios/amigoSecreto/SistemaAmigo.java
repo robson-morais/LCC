@@ -18,7 +18,7 @@ public class SistemaAmigo {
     }
 
 
-    public void cadastrarAmigo (String nomeAmigo, String emailAmigo) throws AmigoJaExisteException {
+    public void cadastraAmigo (String nomeAmigo, String emailAmigo) throws AmigoJaExisteException {
         if (amigoExiste(emailAmigo)) {
             throw new AmigoJaExisteException("Amigo já existe na lista");
         } else {
@@ -27,14 +27,18 @@ public class SistemaAmigo {
     }
 
 
-    public Amigo pesquisarAmigo (String email) {
-        Amigo amigoEncontrado = null;
-        for (Amigo amigo: this.amigos) {
-            if (amigo.getEmail().equalsIgnoreCase(email)) {
-                amigoEncontrado = amigo;
-                break;
-            }
-        } return amigoEncontrado;
+    public Amigo pesquisaAmigo (String email) throws AmigoInexistenteException {
+        if (amigoExiste(email)) {
+            Amigo amigoEncontrado = null;
+            for (Amigo amigo: this.amigos) {
+                if (amigo.getEmail().equalsIgnoreCase(email)) {
+                    amigoEncontrado = amigo;
+                    break;
+                }
+            } return amigoEncontrado;
+        } else {
+            throw new AmigoInexistenteException("Amigo inexistente");
+        }
     }
 
 
@@ -52,7 +56,7 @@ public class SistemaAmigo {
     }
 
 
-    public List<Mensagem> pesquisarMensagemsAnonimas () {
+    public List<Mensagem> pesquisaMensagensAnonimas () {
         List<Mensagem> mensagensAnonimas = new ArrayList<>();
         for (Mensagem mensagem: this.mensagens) {
             if (mensagem.ehAnonima()) {
@@ -62,9 +66,8 @@ public class SistemaAmigo {
     }
 
 
-    public List<Mensagem> pesquisarTodasMensagens () {
-        List<Mensagem> todasMensagens = new ArrayList<>(this.mensagens);
-        return todasMensagens;
+    public List<Mensagem> pesquisaTodasAsMensagens () {
+        return this.mensagens;
     }
 
 
