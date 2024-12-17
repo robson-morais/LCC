@@ -1,3 +1,5 @@
+package teste.amigoSecreto;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -5,6 +7,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 import java.util.List;
 
+import exercicios.amigoSecreto.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -19,22 +22,22 @@ public class SistemaAmigoTest {
 
 	@Test
 	void testSistemaAmigo() {
-		assertTrue(sistema.pesquisaTodasAsMensagens().isEmpty());
-		assertThrows(AmigoInexistenteException.class, 
-				()-> sistema.pesquisaAmigo("ayla@teste.com"));
+		assertTrue(sistema.pesquisarTodasMensagens().isEmpty());
+		assertThrows(AmigoInexistenteException.class,
+				()-> sistema.pesquisarAmigo("ayla@teste.com"));
 	}
 
 	@Test
 	void testPesquisaECadastraAmigo() {
 		try {
-			sistema.pesquisaAmigo("ayla@teste.com");
+			sistema.pesquisarAmigo("ayla@teste.com");
 			fail("Deveria falhar pois não existe ainda");
 		} catch (AmigoInexistenteException e) {
 			//Ok
 		}
 		try {
-			sistema.cadastraAmigo("ayla", "ayla@teste.com");
-			Amigo a = sistema.pesquisaAmigo("ayla@teste.com");
+			sistema.cadastrarAmigo("ayla", "ayla@teste.com");
+			Amigo a = sistema.pesquisarAmigo("ayla@teste.com");
 			assertEquals("ayla", a.getNome());
 			assertEquals("ayla@teste.com", a.getEmail());
 		} catch (AmigoJaExisteException | AmigoInexistenteException  e) {

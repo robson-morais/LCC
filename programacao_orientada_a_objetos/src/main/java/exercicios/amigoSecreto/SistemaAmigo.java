@@ -1,3 +1,5 @@
+package exercicios.amigoSecreto;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,8 +18,12 @@ public class SistemaAmigo {
     }
 
 
-    public void cadastrarAmigo (String nomeAmigo, String emailAmigo) {
-        this.amigos.add(new Amigo(nomeAmigo, emailAmigo, ""));
+    public void cadastrarAmigo (String nomeAmigo, String emailAmigo) throws AmigoJaExisteException {
+        if (amigoExiste(emailAmigo)) {
+            throw new AmigoJaExisteException("Amigo já existe na lista");
+        } else {
+            this.amigos.add(new Amigo(nomeAmigo, emailAmigo, ""));
+        }
     }
 
 

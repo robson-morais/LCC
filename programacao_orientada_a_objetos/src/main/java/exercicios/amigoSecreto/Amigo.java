@@ -1,3 +1,5 @@
+package exercicios.amigoSecreto;
+
 public class Amigo {
     
     private String nome;
